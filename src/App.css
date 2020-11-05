@@ -333,7 +333,30 @@ footer .flex {
     .wrap input {
         min-width: 250px;
     }
+
     .form-wrap {
         min-width: 330px;
+    }
+    .contact .container {
+        padding: 0 8px;
+    } 
+    
+    .header .container {
+        padding: 0 10px;
+    }
+
+    .header {
+        height: 150px;
+    }
+}
+
+@media(max-width: 350px) {
+    .form-wrap {
+        min-width: 200px;
+        padding: 4.5rem 0.6rem;
+    }
+
+    .header .container {
+        
     }
 }
