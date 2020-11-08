@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Triangle from "../components/Triangle";
 
 const Landing = () => {
@@ -10,8 +11,8 @@ const Landing = () => {
         <h1 className="title">SOCiaL</h1>
         <nav className="navbar">
             <ul>
-                <li><i className="fas fa-user-plus"></i> <a href="#">Sign Up</a></li>
-                <li><i className="fas fa-sign-in-alt"></i> <a href="#">Login</a></li>
+                <li><i className="fas fa-user-plus"></i> <Link to="/signup">Sign Up</Link> </li>
+                <li><i className="fas fa-sign-in-alt"></i> <Link to="/login">Login</Link> </li>
             </ul>
         </nav>
       </div>
@@ -23,10 +24,10 @@ const Landing = () => {
         <div className="container flex">
             <div className="showcase-content">
                 <p>Adipisicing elit. Odit vero reprehenderit rem quidem impedit commodi.</p>
-                <a className="btn" href="#">Sign Up</a>
+                <Link className="btn" to="/signup">Sign Up</Link>
             </div>
             <div className="showcase-image">
-                <img src="images/bannerH.png" alt="banner"></img>
+                <img src="images/banner.png" alt="banner"></img>
             </div>
         </div>
     </section>
@@ -72,7 +73,7 @@ const Landing = () => {
                             <input type="text" placeholder="Message" required/>
                         </div>
                         <div className="wrap">
-                            <button className="btn" type="submit">Send</button>
+                            <button className="btn btn-primary" type="submit">Send</button>
                         </div>
                     </form>
                 </div>

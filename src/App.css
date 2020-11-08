@@ -42,6 +42,19 @@ img {
     transform: scale(0.98);
 }
 
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-width: 0;
+    padding: 0.6rem 1.4rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
 /* Styling for the SVG background */
 .custom-shape-divider-bottom-1604316163 {
     position: absolute;
@@ -238,16 +251,7 @@ img {
 }
 
 .contact button {
-    background-color: var(--secondary-color);
-    color: #fff;
-    border-width: 0;
-    padding: 0.6rem 1.4rem;
-    border-radius: 5px;
     margin-top: 1.4rem;
-    font-size: 1.1rem;
-    box-shadow: var(--shadow);
-    font-weight: bold;
-    letter-spacing: 2px;
 }
 
 /* Footer */
@@ -276,6 +280,134 @@ footer .flex {
 }
 
 
+/* SignUp Page */
+.signup {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left */
+.left {
+    flex: 1;
+    position: relative;
+}
+
+.left img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.6;
+    /* filter: blur(3px); */
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 500px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.left-content .title {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.left-content h2 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.left-content p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Right */
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.right h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.control {
+    margin-bottom: 1.6rem;
+    text-align: center;
+}
+
+.control-btn {
+    margin-top: 3rem;
+}
+
+.control input {
+    border-width: 0;
+    border-bottom: 1px solid gray;
+    padding: 0.4rem 0.2rem;
+    min-width: 300px;
+    color: #333;
+    outline: none;
+}
+
+.or {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.2rem;
+    align-items: center;
+}
+
+.or .bar {
+    flex: auto;
+    border: none;
+    height: 1px;
+    background: #aaa;
+}
+
+.or span {
+    color: #333;
+    padding: 0 0.8rem;
+}
+
+.control a {
+    text-decoration: none;
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 0.7rem;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    margin-top: 0.7rem;
+}
+
+.other-info {
+    margin-top: 1rem;
+}
+
+.other-info a {
+    text-decoration: underline;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+
+/* Login Page */
+.login {
+    display: flex;
+    height: 100vh;
+}
 
 
 /* Media Queries */
@@ -327,6 +459,10 @@ footer .flex {
         padding: 4.5rem 0rem;
         min-width: 400px;
     }
+
+    .left {
+        display: none;
+    }
 }
 
 @media(max-width: 500px) {
@@ -356,7 +492,7 @@ footer .flex {
         padding: 4.5rem 0.6rem;
     }
 
-    .header .container {
-        
+    .control input {
+        min-width: 280px;
     }
 }
