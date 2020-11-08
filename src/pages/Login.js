@@ -37,7 +37,7 @@ const Login = () => {
                         <hr className="bar"/>
                     </div>
                 <div className="control">
-                    <a className="btn" href="#">Login With Google</a>
+                    <a className="btn" href="https">Login With Google</a>
                 </div>
             </form>
 

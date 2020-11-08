@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import pattern from '../svgs/pattern.svg';
+import axios from "axios";
 
 const SignUp = () => {
+
+    const googleUrl = "http://localhost:5000/auth/google";
+
     return (
         <main className="signup">
             <div className="left">
@@ -43,7 +47,7 @@ const SignUp = () => {
                         <hr className="bar"/>
                     </div>
                     <div className="control">
-                        <a className="btn" href="http://localhost:5000/auth/google">Sign Up With Google</a>
+                        <a className="btn" target="_blank" href={googleUrl} id="googleBtn" >Sign Up With Google</a>
                     </div>
                 </form>
 
