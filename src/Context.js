@@ -12,6 +12,7 @@ const Context = ({ children }) => {
     const [signUp, setSignUp] = useState({})
     const [signUpError, setSignUpError] = useState([])
     const [logIn, setLogIn] = useState({})
+    const [auth, setAuth] = useState(false);
 
 
 
@@ -39,16 +40,10 @@ const Context = ({ children }) => {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
+    // Clear the signup error
+    const clearSignupError = (e) => {
+        setSignUpError([]);
+    }
 
 
 
@@ -58,7 +53,7 @@ const Context = ({ children }) => {
 
     return (
         <>
-            <DataContext.Provider value={{ handleSignUp, submitSignUp, signUpError }}>
+            <DataContext.Provider value={{ handleSignUp, submitSignUp, signUpError, clearSignupError, auth }}>
                 {children}
             </DataContext.Provider>
         </>

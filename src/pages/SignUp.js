@@ -8,7 +8,7 @@ import { DataContext } from '../Context'
 const SignUp = () => {
 
     const googleUrl = "http://localhost:5000/auth/google";
-    const { handleSignUp, submitSignUp, signUpError } = useContext(DataContext)
+    const { handleSignUp, submitSignUp, signUpError, clearSignupError } = useContext(DataContext);
 
 
     return (
@@ -26,7 +26,7 @@ const SignUp = () => {
 
             <div className="right">
                 <h2>SignUp</h2>
-                <p>{signUpError}</p>
+                {signUpError.length > 0 && <div className="signup-error"> <div>{signUpError}</div><span onClick={clearSignupError}>X</span> </div>}
                 <br />
                 <form onSubmit={submitSignUp}>
                     <div className="control">
@@ -58,7 +58,7 @@ const SignUp = () => {
                 </form>
 
                 <div className="other-info">
-                    <Link to='login'>Forgot Password</Link> | <Link to='/login'>Already have an account</Link>
+                    {/* <Link to='login'>Forgot Password</Link> | */} <Link to='/login'>Already have an account</Link> 
                 </div>
             </div>
         </main>

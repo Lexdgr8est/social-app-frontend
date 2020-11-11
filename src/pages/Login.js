@@ -42,7 +42,7 @@ const Login = () => {
                 </form>
 
                 <div className="other-info">
-                    <Link to='login'>Forgot Password</Link> | <Link to='/signup'>Don't have an account</Link>
+                    <Link to='/reset-email'>Forgot Password</Link> | <Link to='/signup'>Don't have an account</Link>
                 </div>
             </div>
         </main>

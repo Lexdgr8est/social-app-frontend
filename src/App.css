@@ -286,6 +286,39 @@ footer .flex {
     height: 100vh;
 }
 
+/* Error Alert */
+.signup-error {
+    background-color: #e94b36ff;
+    color: #2d2926ff;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    max-width: 300px;
+}
+
+.signup-error div {
+    align-self: center;
+}
+
+.signup-error span {
+    color: #f4f4f4;
+    margin-left: 1rem;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    align-self: center;
+    font-weight: bold;
+}
+
+.signup-error span:hover {
+    border: 1px solid #f4f4f4;
+    border-radius: 3px;
+}
+
+
 /* Left */
 .left {
     flex: 1;
@@ -393,7 +426,7 @@ footer .flex {
 }
 
 .other-info {
-    margin-top: 1rem;
+    margin-top: 0.4rem;
 }
 
 .other-info a {
