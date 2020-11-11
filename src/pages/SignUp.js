@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import pattern from '../svgs/pattern.svg';
+import Spinner from '../components/Spinner';
 import { DataContext } from '../Context'
 
 
@@ -43,6 +44,9 @@ const SignUp = () => {
                     </div>
                     <div className="control">
                         <input type="password" name='password1' onChange={handleSignUp} placeholder="Confirm Password" required />
+                    </div>
+                    <div className="flex-spinner">
+                        <Spinner />
                     </div>
                     <div className="control control-btn">
                         <button className="btn btn-primary" >Sign Up</button>
