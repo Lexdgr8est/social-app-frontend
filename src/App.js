@@ -8,6 +8,7 @@ import PasswordResetEmail from "./pages/PasswordResetEmail";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import ProtectedRoutes from './components/ProtectedRoutes';
+import Feed from './pages/Feed';
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/reset-email" component={PasswordResetEmail} />
         <Route path="/new-password" component={AddNewPassword} />
-        {/* <Route path="/dashboard" component={Dashboard} /> */}
         <Route path="/confirm-password" component={ConfirmPassword} />
         <ProtectedRoutes path="/dashboard" component={Dashboard} />
+        <ProtectedRoutes path="/feed" component={Feed} />
       </Switch>
     </Router>
   );

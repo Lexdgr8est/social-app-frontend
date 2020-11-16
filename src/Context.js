@@ -12,7 +12,7 @@ const Context = ({ children }) => {
     const [signUp, setSignUp] = useState({})
     const [signUpError, setSignUpError] = useState([])
     const [logIn, setLogIn] = useState({})
-    const [auth, setAuth] = useState(false);
+    const [auth, setAuth] = useState(true);
 
 
 
