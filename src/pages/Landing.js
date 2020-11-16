@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Triangle from "../components/Triangle";
+import TopButton from '../components/TopButton';
 
 const Landing = () => {
   return (
@@ -98,6 +99,8 @@ const Landing = () => {
             </div>
         </div>
     </footer>
+
+    <TopButton />
 
     </>
   );
