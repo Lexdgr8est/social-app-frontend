@@ -377,8 +377,10 @@ footer .flex {
 }
 
 .control {
-  margin-bottom: 1.6rem;
-  text-align: center;
+    margin-bottom: 1.6rem;
+    text-align: center;
+    position: relative;
+=======
 }
 
 .control-btn {
@@ -421,6 +423,13 @@ footer .flex {
   border-radius: 5px;
   box-shadow: var(--shadow);
   margin-top: 0.7rem;
+}
+
+.fa-eye{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .other-info {
@@ -841,24 +850,95 @@ input:checked + .slider:before {
 
 /* Media Queries */
 
-@media (max-width: 640px) {
-  .header {
-    height: 120px;
-    padding: 0.6rem 0;
-  }
 
-  .header .flex {
-    flex-direction: column;
-  }
+@media(max-width: 640px) {
+    .header {
+        height: 120px;
+        padding: 0.6rem 0;
+    }
 
-  .title {
-    padding-bottom: 0.4rem;
-  }
+    .header .flex {
+        flex-direction: column;
+    }
 
-  .navbar ul {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
+    .title {
+        padding-bottom: 0.4rem;
+    }
 
+    .navbar ul {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .showcase {
+        padding-top: 4rem;
+        text-align: center;
+    }
+
+    .showcase-image {
+        display: none;
+    }
+
+    .showcase-content {
+        max-width: 300px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .cards .flex {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 768px) {
+    .contact-image {
+        display: none;
+    }
+
+    .form-wrap {
+        padding: 4.5rem 0rem;
+        min-width: 400px;
+    }
+
+    .left {
+        display: none;
+    }
+}
+
+@media(max-width: 500px) {
+    .wrap input {
+        min-width: 250px;
+    }
+
+    .form-wrap {
+        min-width: 330px;
+    }
+    .contact .container {
+        padding: 0 8px;
+    } 
+    
+    .header .container {
+        padding: 0 10px;
+    }
+
+    .header {
+        height: 150px;
+    }
+}
+
+@media(max-width: 350px) {
+    .form-wrap {
+        min-width: 200px;
+        padding: 4.5rem 0.6rem;
+    }
+
+    .control input {
+        min-width: 280px;
+    }
+}
+
+
+
+=======
   .showcase {
     padding-top: 4rem;
     text-align: center;
@@ -925,3 +1005,4 @@ input:checked + .slider:before {
     min-width: 280px;
   }
 }
+

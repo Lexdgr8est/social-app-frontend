@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { DataContext } from '../Context';
 
@@ -9,8 +9,8 @@ const ProtectedRoutes = ({ component }) => {
     return auth ? (
         <Component />
     ) : (
-        <Redirect to={{pathname: '/login'}} />
-    )
+            <Redirect to={{ pathname: '/login' }} />
+        )
 }
 
 export default ProtectedRoutes
