@@ -1,6 +1,9 @@
-import React, {useRef} from 'react'
+import React, {useRef, useEffect} from 'react'
 
 const TopButton = () => {
+    // Set useRef
+    const topRef = useRef();
+
 
     // Scroll Function
     const topScroll = (e) => {
@@ -29,10 +32,27 @@ const TopButton = () => {
         requestAnimationFrame(animation);
     }
 
+    // Event listener function
+    const handleScroll = () => {
+        if( window.scrollY > 500) {
+            topRef.current.style.display = 'flex';
+        } else if (window.scrollY <= 500) {
+            topRef.current.style.display = 'none';
+        }
+    }
+
+    // Set scroll event listener
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
 
     return (
-        <div style={top} onClick={topScroll}>
+        <div style={top} onClick={topScroll} ref={topRef}>
             <i className="fas fa-chevron-up"></i>
         </div>
     )
@@ -47,7 +67,7 @@ const top = {
     cursor: 'pointer',
     padding: '0.9rem',
     borderRadius: '50%',
-    display: 'flex',
+    display: 'none',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: '1.5rem',

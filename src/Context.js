@@ -11,7 +11,8 @@ export const DataContext = React.createContext()
 const Context = ({ children }) => {
     // States
     const [profile, setProfile] = useState(null)
-    const [auth, setAuth] = useState(false);
+    const [auth, setAuth] = useState(false);  
+
 
 
 
