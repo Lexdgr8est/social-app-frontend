@@ -3,13 +3,39 @@ import { Link } from 'react-router-dom';
 import pattern from '../svgs/pattern.svg';
 import Spinner from '../components/Spinner';
 import { DataContext } from '../Context'
-
+import { sendRequest, checkPassword } from '../helpers/Helper'
 
 
 const SignUp = () => {
+    const [signUp, setSignUp] = useState({})
+    const [signUpError, setSignUpError] = useState([])
 
     const googleUrl = "http://localhost:5000/auth/google";
-    const { handleSignUp, submitSignUp, signUpError, clearSignupError } = useContext(DataContext);
+
+
+
+    //Gets data from signUp page
+    const handleSignUp = (e) => {
+        let name = e.target.name
+        let value = e.target.value
+        setSignUp(prev => { return { ...prev, [name]: value } })
+    }
+
+    //Submits SignUp data to server
+    const submitSignUp = (e) => {
+        e.preventDefault()
+        //use function to check password
+        let check = checkPassword(signUp.password, signUp.password1)
+        if (!check[0]) {
+            setSignUpError(check[1])
+        } else {
+            setSignUpError([])
+            console.log(signUp);
+            // sendRequest('POST', URL, signUp)
+        }
+    }
+
+
 
 
     return (
@@ -27,7 +53,7 @@ const SignUp = () => {
 
             <div className="right">
                 <h2>SignUp</h2>
-                {signUpError.length > 0 && <div className="signup-error"> <div>{signUpError}</div><span onClick={clearSignupError}>X</span> </div>}
+                {signUpError.length > 0 && <div className="signup-error"> <div>{signUpError}</div><span onClick={() => { setSignUpError([]); }}>X</span> </div>}
                 <br />
                 <form onSubmit={submitSignUp}>
                     <div className="control">
@@ -62,7 +88,7 @@ const SignUp = () => {
                 </form>
 
                 <div className="other-info">
-                    {/* <Link to='login'>Forgot Password</Link> | */} <Link to='/login'>Already have an account</Link> 
+                    {/* <Link to='login'>Forgot Password</Link> | */} <Link to='/login'>Already have an account</Link>
                 </div>
             </div>
         </main>
