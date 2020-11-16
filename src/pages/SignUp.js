@@ -1,14 +1,16 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import pattern from '../svgs/pattern.svg';
 import Spinner from '../components/Spinner';
-import { DataContext } from '../Context'
-import { sendRequest, checkPassword } from '../helpers/Helper'
+
+import { checkPassword, serverURL, postRequest } from '../helpers/Helper'
 
 
 const SignUp = () => {
     const [signUp, setSignUp] = useState({})
     const [signUpError, setSignUpError] = useState([])
+    const [show, setShow] = useState({ type: 'password', type1: 'password' })
+
 
     const googleUrl = "http://localhost:5000/auth/google";
 
@@ -22,7 +24,7 @@ const SignUp = () => {
     }
 
     //Submits SignUp data to server
-    const submitSignUp = (e) => {
+    const submitSignUp = async (e) => {
         e.preventDefault()
         //use function to check password
         let check = checkPassword(signUp.password, signUp.password1)
@@ -31,10 +33,30 @@ const SignUp = () => {
         } else {
             setSignUpError([])
             console.log(signUp);
-            // sendRequest('POST', URL, signUp)
+            let data = await postRequest(`${serverURL}/auth/signup`, signUp)
+            setSignUp({})
+            console.log(data.data);
         }
     }
 
+
+    //makes password visible
+    const showPassword = (nos) => {
+        if (nos === 0) {
+            if (show.type === 'password') {
+                setShow(prev => prev = { ...prev, type: 'text' })
+            } else {
+                setShow(prev => prev = { ...prev, type: 'password' })
+            }
+        }
+        if (nos === 1) {
+            if (show.type1 === 'password') {
+                setShow(prev => prev = { ...prev, type1: 'text' })
+            } else {
+                setShow(prev => prev = { ...prev, type1: 'password' })
+            }
+        }
+    }
 
 
 
@@ -57,7 +79,10 @@ const SignUp = () => {
                 <br />
                 <form onSubmit={submitSignUp}>
                     <div className="control">
-                        <input type="text" onChange={handleSignUp} name='fullname' placeholder="Full Name" required />
+                        <input type="text" onChange={handleSignUp} name='firstname' placeholder="First Name" required />
+                    </div>
+                    <div className="control">
+                        <input type="text" onChange={handleSignUp} name='lastname' placeholder="Last Name" required />
                     </div>
                     <div className="control">
                         <input type="text" name='username' onChange={handleSignUp} placeholder="Username" required />
@@ -66,10 +91,14 @@ const SignUp = () => {
                         <input type="email" name='email' onChange={handleSignUp} placeholder="Email" required />
                     </div>
                     <div className="control">
-                        <input type="password" name='password' onChange={handleSignUp} placeholder="Password" required />
+
+                        <input type={show.type} name='password' onChange={handleSignUp} placeholder="Password" required />
+                        <i className="fas fa-eye" onClick={() => { showPassword(0) }}></i>
                     </div>
                     <div className="control">
-                        <input type="password" name='password1' onChange={handleSignUp} placeholder="Confirm Password" required />
+
+                        <input type={show.type1} name='password1' onChange={handleSignUp} placeholder="Confirm Password" required />
+                        <i className="fas fa-eye" onClick={() => { showPassword(1) }}></i>
                     </div>
                     <div className="flex-spinner">
                         <Spinner />
@@ -83,7 +112,7 @@ const SignUp = () => {
                         <hr className="bar" />
                     </div>
                     <div className="control">
-                        <a className="btn" target="_blank" href={googleUrl} id="googleBtn" >Sign Up With Google</a>
+                        <a className="btn" target="_blank" href={`${serverURL}/auth/google`} id="googleBtn" >Sign Up With Google</a>
                     </div>
                 </form>
 

@@ -19,6 +19,20 @@ export const checkPassword = (password, password1) => {
 
 
 
-export const sendRequest = (method, url, data) => {
-    return axios({ method, url, data })
+export const postRequest = (url, data) => {
+    return axios({ method: 'POST', url, data, withCredentials: true })
 }
+
+export const getRequest = (url) => {
+    return axios({ method: 'GET', url, withCredentials: true })
+}
+
+export const deleteRequest = (url) => {
+    return axios({ method: 'DELETE', url, withCredentials: true })
+}
+
+export const putRequest = (url, data) => {
+    return axios({ method: 'POST', url, data, withCredentials: true })
+}
+
+export const serverURL = 'http://localhost:5000'

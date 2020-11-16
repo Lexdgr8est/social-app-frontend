@@ -381,6 +381,7 @@ footer .flex {
 .control {
     margin-bottom: 1.6rem;
     text-align: center;
+    position: relative;
 }
 
 .control-btn {
@@ -423,6 +424,13 @@ footer .flex {
     border-radius: 5px;
     box-shadow: var(--shadow);
     margin-top: 0.7rem;
+}
+
+.fa-eye{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .other-info {
@@ -573,3 +581,6 @@ footer .flex {
         min-width: 280px;
     }
 }
+
+
+
